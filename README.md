@@ -1,29 +1,27 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/mi1WNrHU)
-# Proyecto de C++ - [Nombre del Juego]
+# Proyecto de C++ - OWL ROCKET
 
 ## Descripción del Proyecto
 
-Breve descripción del juego, su propósito, cómo se juega y cualquier otro detalle importante que describa la idea general del proyecto.
-
-**Por ejemplo:**
-Este proyecto consiste en un juego de aventuras donde el jugador debe explorar un mundo virtual, recoger objetos, resolver acertijos y enfrentar enemigos. El juego utiliza estructuras de control como `if`, `switch`, y bucles `while` y `for` para generar interacciones dinámicas.
+Acompaña a Noctriz en este viaje espacial lleno de aventuras donde podrás cumplir diferentes misiones para derrotar a IA, quien ha secuestrado a todos los habitantes de Algoritmia. Podrás resolver memogramas, ahorcado, competir en carreras de naves y batallas de naves. A nivel de creación, se utilizaron estructuras de control como 'if', 'switch', bucles 'while' y 'for' y de igual manera funciones y arreglos para generar toda la interfaz como el funcionamiento. 
 
 ## Equipo
 
-- **Nombre del equipo:** [Nombre del equipo]
+- **Nombre del equipo:** Asteroides con WiFi
 
 ### Integrantes del equipo
 
-1. **Nombre completo:** [Nombre del estudiante 1]  
-   **Carnet:** [Carnet del estudiante 1]
+1. **Nombre completo:** Leila Saraí Campos Peraza 
+   **Carnet:** 00141525
 
-2. **Nombre completo:** [Nombre del estudiante 2]  
-   **Carnet:** [Carnet del estudiante 2]
+2. **Nombre completo:** Rubén Eliseo Martínez Perez
+   **Carnet:** 00076325
 
-3. **Nombre completo:** [Nombre del estudiante 3]  
-   **Carnet:** [Carnet del estudiante 3]
+3. **Nombre completo:** Álvaro David Campos Jimenez
+   **Carnet:** 00135525
 
-(Agregar más integrantes si es necesario)
+4. **Nombre completo:** Keiryn Lisette Diaz Cartagena
+   **Carnet:** 00061225
 
 ## Instrucciones de Ejecución
 
