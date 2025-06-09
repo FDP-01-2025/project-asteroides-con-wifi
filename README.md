@@ -27,4 +27,4 @@ Acompaña a Noctriz en este viaje espacial lleno de aventuras donde podrás cump
 
 1. Clona este repositorio en tu máquina local:
    ```bash
-   git clone [URL del repositorio]
+   git clone (https://github.com/FDP-01-2025/project-asteroides-con-wifi.git)
