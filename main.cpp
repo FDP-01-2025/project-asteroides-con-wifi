@@ -1,13 +1,13 @@
 #include <iostream>
 #include <cmath>
-#include <utilities.h>
-#include <Lib/memorama.h>
+#include "utilities.h"
+#include "Lib/memorama.h"
 
 using namespace std;
 
 int main(){
-   
-    welcome();
+    Memorama juego;
+    juego.playGame();
     
     return 0;
 }
