@@ -1,14 +1,15 @@
 #include <iostream>
 #include <windows.h> // For Sleep()
 #include <cmath>
-#include <utilities.h>
-#include <memorama.h>
+#include "src/space_race.h"
+#include "src/utilities.h"
+#include "src/memorama.h"// Include the Memorama game
 
    
 
 int main(){
-    Memorama juego;
-    juego.playGame();
+    Memorama juego; // Initialize the Memorama game
+    juego.playGame();// Start the game
     
      srace_message();  // Show welcome message
 
