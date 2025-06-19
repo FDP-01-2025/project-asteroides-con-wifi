@@ -1,10 +1,16 @@
 #include <iostream>
-#include <space_race.h>
 #include <windows.h> // For Sleep()
+#include <cmath>
+#include <utilities.h>
+#include <memorama.h>
 
-int main()
-{
-    srace_message();  // Show welcome message
+   
+
+int main(){
+    Memorama juego;
+    juego.playGame();
+    
+     srace_message();  // Show welcome message
 
     while (true)
     {
@@ -14,6 +20,5 @@ int main()
 
         Sleep(100);      // Delay to control game speed (100 ms)
     }
-
     return 0;
 }
