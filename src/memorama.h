@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <cstring>
+#include <fstream>
 
 using namespace std;
 
@@ -52,6 +53,7 @@ private:
     }
 
     void displayHeader() {
+        clearScreen();
         cout << R"(
   , _ ,
  ( o o )
@@ -60,24 +62,21 @@ private:
 |       |
  \     /
   `~~~`
+
 )" << endl;
     }
 
     void displayBoard(bool revealAll = false) {
-        cout << "\n   ";
-        for (int j = 0; j < BOARD_SIZE; ++j) {
-            cout << " " << j + 1 << "   ";
-        }
         cout << "\n";
-
+        char label = 'A';
         for (int i = 0; i < BOARD_SIZE; ++i) {
-            cout << " " << char('A' + i) << " ";
             for (int j = 0; j < BOARD_SIZE; ++j) {
                 if (board[i][j].revealed || revealAll) {
-                    printf(" %-4s", board[i][j].word);
+                    printf(" %-6s", board[i][j].word);
                 } else {
-                    cout << " [ ] ";
+                    printf(" [ %c ] ", label);
                 }
+                label++;
             }
             cout << "\n";
         }
@@ -97,16 +96,15 @@ private:
         #endif
     }
 
-    bool isValidInput(string input) {
-        if (input.length() != 2) return false;
-        char row = toupper(input[0]);
-        char col = input[1];
-        return (row >= 'A' && row < 'A' + BOARD_SIZE) && (col >= '1' && col < '1' + BOARD_SIZE);
+    bool isValidLetter(char input) {
+        input = toupper(input);
+        return (input >= 'A' && input < 'A' + BOARD_SIZE * BOARD_SIZE);
     }
 
-    void getCoordinates(string input, int &x, int &y) {
-        x = toupper(input[0]) - 'A';
-        y = input[1] - '1';
+    void getCoordinatesFromChar(char input, int &row, int &col) {
+        int pos = toupper(input) - 'A';
+        row = pos / BOARD_SIZE;
+        col = pos % BOARD_SIZE;
     }
 
 public:
@@ -118,25 +116,24 @@ public:
 
     void playGame() {
         int pairsFound = 0;
-        string input1, input2;
+        char input1, input2;
 
-        clearScreen();
         displayHeader();
 
         while (pairsFound < TOTAL_PAIRS) {
             displayBoard();
-
             cout << "\nScore: " << score;
-            cout << "\n\nChoose first card (e.g. A1): ";
+
+            cout << "\n\nChoose first card (A - P): ";
             cin >> input1;
 
-            if (!isValidInput(input1)) {
+            if (!isValidLetter(input1)) {
                 cout << "Invalid input. Try again.\n";
                 continue;
             }
 
             int x1, y1;
-            getCoordinates(input1, x1, y1);
+            getCoordinatesFromChar(input1, x1, y1);
             if (board[x1][y1].revealed) {
                 cout << "Card already revealed.\n";
                 continue;
@@ -145,18 +142,19 @@ public:
             board[x1][y1].revealed = true;
             displayBoard();
 
-            cout << "\nChoose second card (e.g. B3): ";
+            cout << "\nChoose second card (A - P): ";
             cin >> input2;
 
-            if (!isValidInput(input2)) {
+            if (!isValidLetter(input2)) {
                 board[x1][y1].revealed = false;
-                cout << "Invalid input. Try again.\n";
+                cout << "Invalid input.\n";
                 continue;
             }
 
             int x2, y2;
-            getCoordinates(input2, x2, y2);
-            if (x1 == x2 && y1 == y2 || board[x2][y2].revealed) {
+            getCoordinatesFromChar(input2, x2, y2);
+
+            if ((x1 == x2 && y1 == y2) || board[x2][y2].revealed) {
                 board[x1][y1].revealed = false;
                 cout << "Invalid selection.\n";
                 continue;
@@ -166,23 +164,23 @@ public:
             displayBoard();
 
             if (strcmp(board[x1][y1].word, board[x2][y2].word) == 0) {
-                cout << "\nGreat! You found a match!";
+                cout << "\nNice! You found a match!";
                 score += 10;
                 pairsFound++;
             } else {
-                cout << "\nNot a match...";
+                cout << "\nOops! Not a match.";
                 score -= 2;
                 board[x1][y1].revealed = false;
                 board[x2][y2].revealed = false;
             }
 
             waitForEnter();
-            clearScreen();
             displayHeader();
         }
 
-        cout << "\nCONGRATULATIONS! You completed the game.";
-        cout << "\nFinal Score: " << score << "\n";
+        cout << "\n CONGRATULATIONS! You completed the mission!";
+        cout << "\n Final Score: " << score << "\n";
+
     }
 
     int getScore() {
