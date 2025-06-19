@@ -1,12 +1,19 @@
 #include <iostream>
-#include <cmath>
-#include <utilities.h>
+#include <space_race.h>
+#include <windows.h> // For Sleep()
 
-using namespace std;
+int main()
+{
+    srace_message();  // Show welcome message
 
-int main(){
-   
-    welcome();
-    
+    while (true)
+    {
+        shipMovement();  // Check for and handle ship movement input
+        clearField();    // Clear and update the field with ship position
+        showField();     // Display the updated field
+
+        Sleep(100);      // Delay to control game speed (100 ms)
+    }
+
     return 0;
 }
