@@ -5,14 +5,14 @@
 #include <cstdlib>
 
 using namespace std;
-
+/*
 // This function can clear the screen
-inline void clrscr() {
+ void clrscr() {
     system("cls"); 
 }
 
 // This function print a menu
-inline void welcome() {
+ void welcome() {
     cout << "========================================" << endl;
     cout << "   ¡Welcome Algorithm Commander!        " << endl;
     cout << "   Help Noctriz rescue his planet       " << endl;
@@ -23,7 +23,7 @@ inline void welcome() {
 }
 
 // Esta función imprime el menú
-inline void menu() {
+ void spaceship() {
 
     cout << endl;
     cout << "      ^     " << endl;
@@ -41,4 +41,24 @@ inline void menu() {
     cout << "*     |     *" << endl;
 }
 
+//This function add points to the global score
+
+void global_score(){
+
+}
+void level_score(){
+
+    int lscore=0;
+
+}
+void space_race_score(){
+
+   bool result_of_race=true;
+    if(result_of_race=true){
+    }
+
+    
+
+}
+    */
 #endif // UTILITIES_H
