@@ -10,7 +10,21 @@ void Cleanscreen();
 void Playgame();
 void body(int life);
 
-//Palabras que aparecen en el juego//
+//Palabras que aparecen en el juego, de forma aleatortia//
+
+string words[]={"star","planet","wifi","internet","rocket","help","rescue","galaxy","travel","space"};
+
+int main(){
+
+
+
+
+
+
+
+
+    return 0;
+}
 
 
 
