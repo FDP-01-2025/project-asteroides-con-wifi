@@ -9,12 +9,13 @@
    
 
 int main(){
+    memorama_messages(); // Show welcome message and instructions
     Memorama juego; // Initialize the Memorama game
     juego.playGame();// Start the game
     
      srace_message();  // Show welcome message
 
-     memorama_messages(); // Show welcome message and instructions 
+      
 
     while (true)
     {
