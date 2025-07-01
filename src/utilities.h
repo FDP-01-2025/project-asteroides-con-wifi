@@ -5,60 +5,61 @@
 #include <cstdlib>
 
 using namespace std;
-/*
-// This function can clear the screen
- void clrscr() {
-    system("cls"); 
+
+// Limpiar pantalla
+void clrscr() {
+    system("cls"); // Para Windows. Usá "clear" si estás en Linux/macOS.
 }
 
-// This function print a menu
- void welcome() {
+// Esperar que el usuario presione Enter
+void waitForEnter() {
+    cout << endl << "Press Enter to continue...";
+    cin.ignore();
+    cin.get();
+}
+
+// Mostrar intro completa: bienvenida, Noctriz y nave
+void showIntro() {
+    // Mensaje de bienvenida
     cout << "========================================" << endl;
     cout << "   ¡Welcome Algorithm Commander!        " << endl;
     cout << "   Help Noctriz rescue his planet       " << endl;
     cout << "========================================" << endl;
     cout << endl;
-    cout << "Press any key to continue..." << endl;
-    clrscr();
-}
 
-// Esta función imprime el menú
- void spaceship() {
+    // Mostrar Noctriz
+    cout << "This is Noctriz the owl" << endl;
+    cout << "      _" << endl;
+    cout << "    (o,o)" << endl;
+    cout << "   { ' ' '}" << endl;
+    cout << "   -^--^-" << endl;
+    cout << endl;
+
+    // Mensaje de la misión
+    cout << "You need to help Noctriz to save all the members of his planet." << endl;
+    cout << "All the population is known as ALGORITMIOS." << endl;
+    cout << "They were captured by AI, a horrible villain!" << endl;
+    cout << "And your mission is... Help Noctriz to save them all!" << endl;
 
     cout << endl;
-    cout << "      ^     " << endl;
-    cout << "     / \\     " << endl;
-    cout << "    /___\\    " << endl;
-    cout << "    |   |    " << endl;
-    cout << "    |   |    " << endl;
-    cout << "    |___|    " << endl;
-    cout << "   /|   |\\   " << endl;
-    cout << "  /_|___|_\\  " << endl;
+
+    // Mostrar nave espacial
+    cout << "      ^      " << endl;
+    cout << "     / \\    " << endl;
+    cout << "    /_  \\  " << endl;
+    cout << "    |    |    " << endl;
+    cout << "    |    |    " << endl;
+    cout << "    |_   |    " << endl;
+    cout << "   /|    |\\   " << endl;
+    cout << "  /||_   |\\  " << endl;
     cout << "    / | \\    " << endl;
     cout << "   *  |  *   " << endl;
     cout << "  *   |   *  " << endl;
     cout << " *    |    * " << endl;
     cout << "*     |     *" << endl;
+
+    waitForEnter();
+    clrscr();
 }
 
-//This function add points to the global score
-
-void global_score(){
-
-}
-void level_score(){
-
-    int lscore=0;
-
-}
-void space_race_score(){
-
-   bool result_of_race=true;
-    if(result_of_race=true){
-    }
-
-    
-
-}
-    */
 #endif // UTILITIES_H

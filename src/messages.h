@@ -21,7 +21,7 @@ void hangman_messages(){
     cout << "===========================" << endl << endl;
     cout << "Your mission is to discover the random word in as few tries" << endl;
     cout << "as possible, you lose if you complete the drawing of the hanged man" << endl << endl;
-    cout << "Let's GO!"
+    cout << "Let's GO!";
 }
 
 
