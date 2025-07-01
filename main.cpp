@@ -11,9 +11,8 @@
    
 
 int main(){
-    Hngman game ;
-    game.Playgame();
-
+    mostrarMenu();
+    
     memorama_messages(); // Show welcome message and instructions
     Memorama juego; // Initialize the Memorama game
     juego.playGame();// Start the game
