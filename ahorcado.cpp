@@ -113,7 +113,7 @@ void body(int life){
 
 void Playgame(){
     srand((int)(NULL));
-    int nA=rand()%7;
+    int nA=rand()%10;
 
     string word=words[nA];
     string hiddendword(word.length(),'_');
@@ -121,6 +121,7 @@ void Playgame(){
     int life=6;
     char letter;
     bool win=false;
+    string usedletters;
 
 
 
@@ -132,15 +133,39 @@ void Playgame(){
 
         cout<<"Word:"<<hiddendword<<endl;
         cout<<"Remaining lifes"<<life<<endl;
+        cout<<"Used letters"<<usedletters<<endl;
         cout<<"Enter a letter:"<<endl;
         cin>>letter;
 
 
+        string input;
+        cin>>input;
+
+
+        //para verificar que el usuario solo ingrese 1 letra por itento//
+
+   if (input.length() != 1 || !isalpha(input[0])) {
+            cout << "Just one letter per try" << endl;
+            cout << "Press Enter to continue...";
+            cin.ignore();
+            cin.get();
+            continue;
+        }
 
         //funcion para que aunque el usuario ingrese la letra en mayuscula no genere un error o lo tome como malo//
 
         letter=tolower(letter);
 
+        //verifica si ya se utilizo la letra para luego agregarla a la lista//
+
+
+        if (usedletters.find(letter) != string::npos) {
+            cout << "You already tried that letter!" << endl;
+            cout << "Press Enter to continue...";
+            cin.ignore();
+            cin.get();
+            continue;
+        }
 
         bool hitit=false;
 
