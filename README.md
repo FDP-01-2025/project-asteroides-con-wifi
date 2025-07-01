@@ -23,6 +23,9 @@ Acompaña a Noctriz en este viaje espacial lleno de aventuras donde podrás cump
 4. **Nombre completo:** Keiryn Lisette Diaz Cartagena
    **Carnet:** 00061225
 
+5. 4. **Nombre completo:** Christian Alexis Martinez Moran
+   **Carnet:** 00053325
+
 ## Instrucciones de Ejecución
 
 1. Clona este repositorio en tu máquina local:
