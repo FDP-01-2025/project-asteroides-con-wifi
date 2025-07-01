@@ -59,5 +59,14 @@ void generateMaze(int maze[lines][columns], float density) {
         else if (y < columns - 1) y++;
         maze[x][y] = 0;
     }
-
+ 
+    // add extra alteatory paths
+    for (int i = 0; i < lines; i++) {
+        for (int j = 0; j < columns; j++) {
+            if (maze[i][j] == 1 && (static_cast<float>(rand()) / RAND_MAX < density)) {
+                maze[i][j] = 0;
+            }
+        }
+    }
+}
 }
