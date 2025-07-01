@@ -11,14 +11,8 @@
    
 
 int main(){
-<<<<<<< HEAD
-
-    
-
-=======
     mostrarMenu();
     
->>>>>>> 2b4a62da90bca857c354d68d625e2bf48f257339
     memorama_messages(); // Show welcome message and instructions
     Memorama juego; // Initialize the Memorama game
     juego.playGame();// Start the game
