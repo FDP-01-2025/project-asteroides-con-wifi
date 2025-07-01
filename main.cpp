@@ -11,11 +11,8 @@
    
 
 int main(){
-<<<<<<< HEAD
 
     showIntro();
-=======
->>>>>>> 3fc6a3c29428b419f75e6cbaadaf1ae13fdcb219
     mostrarMenu();
 
 
