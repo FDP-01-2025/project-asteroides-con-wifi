@@ -5,10 +5,15 @@
 #include "src/utilities.h"
 #include "src/memorama.h"// Include the Memorama game
 #include "src/messages.h"
+#include "src/Hngman.h" //ahorcado game//
+
 
    
 
 int main(){
+    Hngman game ;
+    game.Playgame();
+
     memorama_messages(); // Show welcome message and instructions
     Memorama juego; // Initialize the Memorama game
     juego.playGame();// Start the game

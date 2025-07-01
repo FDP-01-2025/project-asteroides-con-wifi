@@ -1,4 +1,8 @@
-//incluir librerias//
+
+#ifndef HANGMAN_H
+#define HANGMAN_H
+
+
 #include <iostream>
 #include <cstdlib>
 #include <string>
@@ -252,3 +256,5 @@ int main(){
 
     return 0;
 }
+
+#endif
