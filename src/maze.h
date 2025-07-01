@@ -32,4 +32,15 @@ const char PATH = ' ';
 const char PLAYER = '@';
 const char ENTRY = 'E';
 const char EXIT = 'S';
+
+// función para limpiar pantalla
+void clearScreen() {
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+}
+
+
 }
