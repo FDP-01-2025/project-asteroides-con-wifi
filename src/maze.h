@@ -43,5 +43,10 @@ void clearScreen() {
 #endif
 }
 
+// generates a maze with a guaranteed path
+void generateMaze(int maze[lines][columns], float density) {
+    for (int i = 0; i < lines; i++)
+        for (int j = 0; j < columns; j++)
+            maze[i][j] = 1;
 
 }
