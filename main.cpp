@@ -14,6 +14,8 @@ int main(){
     
      srace_message();  // Show welcome message
 
+     memorama_messages(); // Show welcome message and instructions 
+
     while (true)
     {
         shipMovement();  // Check for and handle ship movement input
