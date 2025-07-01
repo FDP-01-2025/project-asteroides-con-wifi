@@ -25,6 +25,7 @@ char getch() {
 
 using namespace std;
 
+//variable declaration
 const int lines = 10;
 const int columns = 20;
 const char WALL = '|';
@@ -33,7 +34,7 @@ const char PLAYER = '@';
 const char ENTRY = 'E';
 const char EXIT = 'S';
 
-// función para limpiar pantalla
+// clear screen function
 void clearScreen() {
 #ifdef _WIN32
     system("cls");
