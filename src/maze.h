@@ -69,4 +69,31 @@ void generateMaze(int maze[lines][columns], float density) {
         }
     }
 }
+
+// draw maze (framework and player)
+void drawMaze(int maze[lines][columns], int px, int py) {
+    cout << "+";
+    for (int j = 0; j < columns; j++) cout << "-";
+    cout << "+\n";
+
+    for (int i = 0; i < lines; i++) {
+        cout << "|";
+        for (int j = 0; j < columns; j++) {
+            if (i == px && j == py)
+                cout << PLAYER;
+            else if (i == 0 && j == 0)
+                cout << ENTRY;
+            else if (i == lines - 1 && j == columns - 1)
+                cout << EXIT;
+            else
+                cout << (maze[i][j] == 1 ? WALL : PATH);
+        }
+        cout << "|\n";
+    }
+
+    cout << "+";
+    for (int j = 0; j < columns; j++) cout << "-";
+    cout << "+\n";
+}
+
 }
