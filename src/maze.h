@@ -7,6 +7,7 @@
 #else
 #include <termios.h>
 #include <unistd.h>
+
 char getch() {
     char buf = 0; 
     struct termios old = {};
@@ -48,5 +49,15 @@ void generateMaze(int maze[lines][columns], float density) {
     for (int i = 0; i < lines; i++)
         for (int j = 0; j < columns; j++)
             maze[i][j] = 1;
+
+    int x = 0, y = 0;
+    maze[x][y] = 0;
+    srand(time(0));
+    while (x < lines - 1 || y < columns - 1) {
+        int dir = rand() % 2;
+        if (dir == 0 && x < lines - 1) x++;
+        else if (y < columns - 1) y++;
+        maze[x][y] = 0;
+    }
 
 }
