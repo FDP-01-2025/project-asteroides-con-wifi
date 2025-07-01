@@ -9,8 +9,9 @@
 
 using namespace std;
 
-const int BOARD_SIZE = 4;
-const int TOTAL_PAIRS = BOARD_SIZE * BOARD_SIZE / 2;
+const int BOARD_ROWS = 3;
+const int BOARD_COLS = 4;
+const int TOTAL_PAIRS = (BOARD_ROWS * BOARD_COLS) / 2;
 
 struct Card {
     char word[20];
@@ -19,15 +20,14 @@ struct Card {
 
 class Memorama {
 private:
-    Card board[BOARD_SIZE][BOARD_SIZE];
+    Card board[BOARD_ROWS][BOARD_COLS];
     char words[TOTAL_PAIRS][20] = {
-        "AI", "Logic", "Model", "Neuron",
-        "Data", "Train", "Learn", "Code"
+        "AI", "Logic", "Model", "Neuron", "Data", "Train"
     };
     int score;
 
     void shuffleBoard() {
-        char tempWords[BOARD_SIZE * BOARD_SIZE][20];
+        char tempWords[BOARD_ROWS * BOARD_COLS][20];
         int index = 0;
 
         for (int i = 0; i < TOTAL_PAIRS; ++i) {
@@ -35,8 +35,8 @@ private:
             strcpy(tempWords[index++], words[i]);
         }
 
-        for (int i = 0; i < BOARD_SIZE * BOARD_SIZE; ++i) {
-            int r = rand() % (BOARD_SIZE * BOARD_SIZE);
+        for (int i = 0; i < BOARD_ROWS * BOARD_COLS; ++i) {
+            int r = rand() % (BOARD_ROWS * BOARD_COLS);
             char temp[20];
             strcpy(temp, tempWords[i]);
             strcpy(tempWords[i], tempWords[r]);
@@ -44,8 +44,8 @@ private:
         }
 
         index = 0;
-        for (int i = 0; i < BOARD_SIZE; ++i) {
-            for (int j = 0; j < BOARD_SIZE; ++j) {
+        for (int i = 0; i < BOARD_ROWS; ++i) {
+            for (int j = 0; j < BOARD_COLS; ++j) {
                 strcpy(board[i][j].word, tempWords[index++]);
                 board[i][j].revealed = false;
             }
@@ -69,8 +69,8 @@ private:
     void displayBoard(bool revealAll = false) {
         cout << "\n";
         char label = 'A';
-        for (int i = 0; i < BOARD_SIZE; ++i) {
-            for (int j = 0; j < BOARD_SIZE; ++j) {
+        for (int i = 0; i < BOARD_ROWS; ++i) {
+            for (int j = 0; j < BOARD_COLS; ++j) {
                 if (board[i][j].revealed || revealAll) {
                     printf(" %-6s", board[i][j].word);
                 } else {
@@ -98,13 +98,13 @@ private:
 
     bool isValidLetter(char input) {
         input = toupper(input);
-        return (input >= 'A' && input < 'A' + BOARD_SIZE * BOARD_SIZE);
+        return (input >= 'A' && input < 'A' + BOARD_ROWS * BOARD_COLS);
     }
 
     void getCoordinatesFromChar(char input, int &row, int &col) {
         int pos = toupper(input) - 'A';
-        row = pos / BOARD_SIZE;
-        col = pos % BOARD_SIZE;
+        row = pos / BOARD_COLS;
+        col = pos % BOARD_COLS;
     }
 
 public:
@@ -124,7 +124,7 @@ public:
             displayBoard();
             cout << "\nScore: " << score;
 
-            cout << "\n\nChoose first card (A - P): ";
+            cout << "\n\nChoose first card (A - L): ";
             cin >> input1;
 
             if (!isValidLetter(input1)) {
@@ -142,7 +142,7 @@ public:
             board[x1][y1].revealed = true;
             displayBoard();
 
-            cout << "\nChoose second card (A - P): ";
+            cout << "\nChoose second card (A - L): ";
             cin >> input2;
 
             if (!isValidLetter(input2)) {
