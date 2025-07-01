@@ -11,7 +11,7 @@ using namespace std;
 string words[]={"star","planet","wifi","internet","rocket","help","rescue","galaxy","travel","space"};
 
 
-//declarar las funciones//
+//declarar las funciones que son las que ayudan a ver que es lo que se debe realizar//
 
 
 //la funcion de limpiar la pantalla//
@@ -179,31 +179,31 @@ void Playgame(){
 int main(){
 
     int options;
-    int life;
 
-    while (true) {
-        life=6;
-    }
+//mostrar un do while para no generar un blucle infinito//
+ do
+ {
+ int life=6;
+ Cleanscreen();
 
-    Cleanscreen();
 
-    //mostrar otro menu//
-
+ //Otro menu//
 
     cout<<"----------------------"<<endl;
     cout<<"----------------------"<<endl;
-    cout<<"          HANGMAN     "<<endl;
+    cout<<"       HANGMAN        "<<endl;
     cout<<"-----------------------"<<endl;
     cout<<"-----------------------"<<endl;
     cout<<"1 PLAY GAME"<<endl;
     cout<<"2 GO BACK"<<endl;
     cin>>options;
 
-    //si el usuario pone una opcion distinta obtendra un "error",para esto se utilizsara un if//
 
-    if (options!=1 && options!=2)
+    //si el usuario pone una opcion distinta obtendra un "error",para esto se utilizsara un if//
+      if (options!=1 && options!=2)
     {
-    cout<<"THERE IS A PROBLEM...choose between option 1 and 2,TRY AGAIN"<<endl;
+    cout<<"THERE IS A PROBLEM...choose between the option 1 and 2"<<endl;
+    cout<<"Please try again"<<endl;
     }
 
     else{
@@ -222,6 +222,8 @@ int main(){
     break;
     }
     }
+
+ } while (options!=2);
 
     return 0;
 }
