@@ -101,4 +101,50 @@ bool isFree(int maze[lines][columns], int x, int y) {
     return x >= 0 && x < lines && y >= 0 && y < columns && maze[x][y] == 0;
 }
 
+void playMazeGame() {
+    int maze[lines][columns];
+    float density = 0.25f;
+    generateMaze(maze, density);
+
+    int px = 0, py = 0;
+    bool win = false;
+    char move;
+while (!win) {
+        clearScreen();
+        cout << "Mission: Escape the Maze\n";
+        cout << "Controls: W (up), A (left), S (down), D (right)\n\n";
+        drawMaze(maze, px, py);
+
+#ifdef _WIN32
+        move = _getch();
+#else
+        move = getch();
+#endif
+
+        int nx = px, ny = py;
+        switch (tolower(move)) {
+            case 'w': nx--; break;
+            case 's': nx++; break;
+            case 'a': ny--; break;
+            case 'd': ny++; break;
+            default: continue;
+        }
+
+        if (isFree(maze, nx, ny)) {
+            px = nx;
+            py = ny;
+        }
+
+        if (px == lines - 1 && py == columns - 1) {
+            win = true;
+            clearScreen();
+            drawMaze(maze, px, py);
+            cout << "\nCongratulations! You've reached the exit.\n";
+        }
+    }
+}
+
+int main() {
+    playMazeGame();
+    return 0;
 }
