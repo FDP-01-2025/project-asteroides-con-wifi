@@ -26,8 +26,57 @@ Acompaña a Noctriz en este viaje espacial lleno de aventuras donde podrás cump
 5. **Nombre completo:** Christian Alexis Martinez Moran
    **Carnet:** 00053325
 
-## Instrucciones de Ejecución
+
+## Juego "THE OWL ROCKET"
+
+## 📦 Características
+
+- ✅ Minijuegos dentro de  uno solo.
+- 🎮 Interfaz basada en texto.
+- 🛠️ La estructura es por librerias independientes  `.h`.
+- 💻 Creado para sistema de Windows (usa funciones de `<windows.h>`).
+
+---
+
+## 🎯 Juegos Incluidos
+
+1. **Memorama**: Encuentra pares de cartas iguales utilizando tu memoria.
+2. **Carrera Espacial**: Gana la carrera.
+3. **Ahorcado (Hangman)**: Adivina la palabra.
+4. **Laberinto (Maze)**:Encuentra la salida de forma rapida y eficiente.
+
+---
+
+## 🧰 Requisitos
+
+- Compilador de C++ (GCC, MinGW, Visual Studio o el de tu preferencia)
+- Sistema operativo: Windows.
+
+---
+
+## 🚀 Cómo Ejecutar
 
 1. Clona este repositorio en tu máquina local:
    ```bash
    git clone (https://github.com/FDP-01-2025/project-asteroides-con-wifi.git)
+
+2. Abre el proyecto en Visual Studio.
+3. Compila el codigo..
+4. Ejecuta el codigo.
+
+---
+
+## 📁 Estructura del Juego
+
+#include <iostream>
+#include <windows.h> // For Sleep()
+#include <cmath>
+#include "src/space_race.h"
+#include "src/utilities.h"
+#include "src/memorama.h"// Include the Memorama game
+#include "src/messages.h"
+#include "src/Hngman.h" //ahorcado game//
+
+
+
+
