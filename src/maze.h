@@ -96,4 +96,9 @@ void drawMaze(int maze[lines][columns], int px, int py) {
     cout << "+\n";
 }
 
+// verifica si una posición es válida
+bool isFree(int maze[lines][columns], int x, int y) {
+    return x >= 0 && x < lines && y >= 0 && y < columns && maze[x][y] == 0;
+}
+
 }
