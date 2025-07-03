@@ -6,6 +6,7 @@
 #include "src/memorama.h"// Include the Memorama game
 #include "src/messages.h"
 #include "src/Hngman.h" //ahorcado game//
+#include "maze.h" // Includes the maze game 
 
 
    
