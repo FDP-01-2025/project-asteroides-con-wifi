@@ -1,45 +1,93 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/mi1WNrHU)
 
-## Equipo
+# Proyecto de C++ - OWL ROCKET 🚀
+
+## 👨‍🚀 Equipo
 
 - **Nombre del equipo:** Asteroides con WiFi
 - **Nombre del juego:** OWL ROCKET
 
-### Integrantes del equipo
+| Nombre | Carnet |
+|--------|--------|
+| Leila Saraí Campos Peraza | 00141525 |
+| Rubén Eliseo Martínez Perez | 00076325 |
+| Álvaro David Campos Jimenez | 00135525 |
+| Keiryn Lisette Diaz Cartagena | 00061225 |
+| Christian Alexis Martinez Moran | 00053325 |
 
-1. **Nombre completo:** Leila Saraí Campos Peraza 
-   **Carnet:** 00141525
+---
 
-2. **Nombre completo:** Rubén Eliseo Martínez Perez
-   **Carnet:** 00076325
+## 🧠 Temática y Ambientación
 
-3. **Nombre completo:** Álvaro David Campos Jimenez
-   **Carnet:** 00135525
+Acompaña a **Noctriz** en un viaje espacial lleno de misiones para salvar a los habitantes de **Algoritmia**, quienes han sido secuestrados por una IA hostil. El juego mezcla lógica, memoria, y velocidad en un entorno de aventura interestelar.
 
-4. **Nombre completo:** Keiryn Lisette Diaz Cartagena
-   **Carnet:** 00061225
+---
 
-5. **Nombre completo:** Christian Alexis Martinez Moran
-   **Carnet:** 00053325
+## 🎮 Mecánica Principal
 
-## Descripción del Proyecto
+El jugador enfrentará distintas **misiones** en diferentes planetas:
 
-Acompaña a Noctriz en este viaje espacial lleno de aventuras donde podrás cumplir diferentes misiones para derrotar a IA, quien ha secuestrado a todos los habitantes de Algoritmia. Podrás resolver memogramas, ahorcado, competir en carreras de naves y batallas de naves. A nivel de creación, se utilizaron estructuras de control como "if", "switch", bucles "while" y "for" y de igual manera funciones y arreglos para generar toda la interfaz como el funcionamiento. 
+- Resolver acertijos de lógica
+- Encontrar suministros (memorama)
+- Descifrar contraseñas
+- Participar en una carrera espacial
+
+Cada misión corresponde a un módulo del programa y se accede a través de un menú interactivo por consola donde el usuario puede seleccionar a que planeta desea iniciar primero en su destino.
+
+---
+
+## 🕹️ Idea General de la Jugabilidad
+
+1. El jugador inicia como Noctriz, astronauta de Algoritmia.
+
+2. Puede elegir entre varias misiones desde un menú principal.
+
+3. Cada misión es un minijuego con su propia mecánica y lógica.
+
+4. Las decisiones y resultados se ven reflejados en mensajes por consola.
+
+5. Al completar todas las misiones, el jugador libera Algoritmia de la IA.
+
+---
+
+## 💻 Aplicación de los Temas Vistos
+
+| Tema del Curso | Aplicación en el Juego |
+|----------------|------------------------|
+| **Variables y tipos de datos** | Se usan `int`, `float`, `bool`, `string` en misiones y control del flujo del juego. |
+
+| **Estructuras condicionales (if, else, switch)** | Control de decisiones, menús, resultados de las misiones. |
+
+| **Ciclos (for, while, do while)** | Repetición de intentos, validación de datos, interacción dentro de las misiones. |
+
+| **Funciones** | Cada misión y utilidad está encapsulada en funciones (ej. `startMission1()`, etc). |
+
+| **Estructuras de datos** | Se utilizan arreglos (`string[]`, `int[]`) para los minijuegos. |
+
+| **Manejo de archivos** | Se guardan puntajes en archivo usando `fstream`. |
+| **Manejo de errores** | Se verifica la entrada de datos de el usuario para que el juego no colapse en algún punto. |
+| **Interfaz por consola** | Menús con `cout`, `cin`, separadores, uso de ASCII Art para estética. |
+
+---
+
+## 🛠️ Consideraciones Técnicas del Desarrollo
+
+- Lenguaje: C++
+- IDE usado: Visual Studio Code
+- Repositorio compartido en GitHub
+- Modularización: Cada misión está en su propio archivo `.cpp` y `.h`
+- El archivo `main.cpp` solo contiene las llamadas a funciones principales de **OWL ROCKET**.
+
+---
 
 
-## Estructura del proyecto 
 
-📂 Proyecto
-│
-├── main.cpp
-├── SearchInfo.cpp      → misión 1 (Kepler 45)
-├── FindSupplies.cpp    → misión 2 (Kepler 45)
-├── GuessPassword.cpp   → misión 1 (PSR)
-├── SpaceRace.cpp       → misión 2 (PSR)
-├── Utils.h         → declaraciones comunes (opcional)
 
-## Instrucciones de Ejecución
 
-1. Clona este repositorio en tu máquina local:
+---
+
+## ▶️ Instrucciones de Ejecución
+
+1. Clona este repositorio:
    ```bash
-   git clone (https://github.com/FDP-01-2025/project-asteroides-con-wifi.git)
+   git clone https://github.com/FDP-01-2025/project-asteroides-con-wifi.git
