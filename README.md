@@ -130,7 +130,9 @@ int main() {
 
     return 0; // Indica que el programa se ejecutó sin errores
 }
-    `````cpp
+    ```
+
+
    **_src/utils.cpp_**
 
 
@@ -302,6 +304,8 @@ void displayGameSummary() {
     cout << "See you on your next mission, Agent!\n";
     waitForEnter(); // Espera la confirmación final del usuario antes de que el programa termine
 }
+
+```
 
 **_src/searchInfo_**
 
@@ -520,6 +524,8 @@ void play() {
     waitForEnter(); // Espera la confirmación final del usuario
 }
 
+```
+
    **_findSupplies_**
 
    ```cpp
@@ -690,6 +696,7 @@ void findSupplies() {
     waitForEnter(); // Espera la confirmación final del usuario
 }
 
+```
 **_src/spaceRace_**
 
 ```cpp
@@ -809,7 +816,8 @@ void spaceRace () {
     waitForEnter(); // Espera la confirmación final del usuario
 }
 
-   **_guessPassword__**
+```
+   **_src/guessPassword__**
 
    ```cpp
 #include <iostream> // Para entrada y salida de datos (cout, cin)
