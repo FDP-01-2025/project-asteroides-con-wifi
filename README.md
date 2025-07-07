@@ -78,7 +78,7 @@ This menu lets the player choose the planet they would like to start with, which
 
  *This part explains the code and how you can play the videogame called "Owl Rocket".*
 
- **_Main.cpp_**
+ 📜 **_Main.cpp_** 
 
  ```cpp
 #include <iostream> // Para entrada y salida de datos (cout, cin)
@@ -134,7 +134,7 @@ int main() {
  ```
 
 
-   **_src/utils.cpp_**
+🧩 **_src/utils.cpp_**
 
 
 ```cpp
@@ -308,7 +308,7 @@ void displayGameSummary() {
 
 ```
 
-**_src/searchInfo_**
+📑 **_src/searchInfo_**
 
 ```cpp
 #include <iostream> // Para entrada y salida de datos (cout, cin)
@@ -527,7 +527,7 @@ void play() {
 
 ```
 
-   **_findSupplies_**
+🍩 **_src/findSupplies_**
 
    ```cpp
 #include <iostream> // Para entrada y salida de datos (cout, cin)
@@ -698,7 +698,7 @@ void findSupplies() {
 }
 
 ```
-**_src/spaceRace_**
+🚀 **_src/spaceRace_**
 
 ```cpp
 #include <iostream> // Para entrada y salida de datos (cout, cin)
@@ -818,7 +818,7 @@ void spaceRace () {
 }
 
 ```
-   **_src/guessPassword__**
+   ⚠️ **_src/guessPassword__**
 
    ```cpp
 #include <iostream> // Para entrada y salida de datos (cout, cin)
@@ -973,6 +973,9 @@ void guessPassword() {
     }
     waitForEnter(); // Espera la confirmación final del usuario
 }
+
+```
+
 
 ## ▶️ Executions instructions
 
