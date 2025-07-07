@@ -15,12 +15,12 @@ string word; // palabra que se va a adivinar y funcionará como contraseña
 string guessedLetters = ""; // lista que almacena las letras intentadas
 
 // dibujo del cuerpo del ahorcado
-void body(int life) {
+void body(int lives) {
     cout << " ________" << endl;
     cout << " |      |" << endl;
-    if (life < 6) cout << " |      O" << endl; else cout << " |" << endl;
-    if (life < 4) cout << " |     /|\\ " << endl; else if (life < 5) cout << " |      |" << endl; else cout << " |" << endl;
-    if (life < 2) cout << " |     / \\" << endl; else if (life < 3) cout << " |     / " << endl; else cout << " |" << endl;
+    if (lives < 6) cout << " |      O" << endl; else cout << " |" << endl;
+    if (lives < 4) cout << " |     /|\\ " << endl; else if (lives < 5) cout << " |      |" << endl; else cout << " |" << endl;
+    if (lives < 2) cout << " |     / \\" << endl; else if (lives < 3) cout << " |     / " << endl; else cout << " |" << endl;
     cout << " |" << endl;
     cout << "_|_ " << endl;
 }
@@ -51,14 +51,14 @@ void guessPassword() {
     word = words[choose];
 
     guessedLetters = "";
-    int live = 6; // Vidas del ahorcado
+    int lives = 6; // Vidas del ahorcado
 
-    while (live > 0) {
+    while (lives > 0) {
         system("cls"); // Limpiar pantalla
         cout << "=== MISSION PSR: DECRYPTING THE PASSWORD ===\n"; // Título de la misión en inglés
         cout << "Current Score: " << globalScore << "\n"; // Puntaje actual en inglés
-        cout << "Lives remaining: " << live << endl; // Vidas restantes en inglés
-        body(live);
+        cout << "Lives remaining: " << lives << endl; // Vidas restantes en inglés
+        body(lives);
         cout << "----------------------------------\n";
         showProgress();
         cout << "Guessed letters: " << guessedLetters << "\n"; // Letras intentadas en inglés
@@ -113,7 +113,7 @@ void guessPassword() {
         // Verificar si la letra está en la palabra
         if (word.find(letter) == string::npos) {
             cout << "Incorrect guess!\n"; // Mensaje de intento incorrecto en inglés
-            live--;  // solo se descuenta si falló
+            lives--;  // solo se descuenta si falló
             globalScore -= 20; // Restar puntos por intento fallido
         } else {
             cout << "Correct guess!\n"; // Mensaje de intento correcto en inglés
@@ -147,7 +147,7 @@ void guessPassword() {
     cout << "   MISSION PSR: DECRYPTING THE PASSWORD\n"; // Título de la misión en inglés
     cout << "=======================================\n\n";
 
-    if (live < 1) {
+    if (lives < 1) {
         cout << "You ran out of lives! The password was: " << word << "\n"; // Mensaje de derrota en inglés
         cout << "The AI has kept its secret. Mission failed.\n"; // Mensaje de derrota en inglés
         globalScore -= 200; // Penalización por perder

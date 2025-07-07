@@ -1,17 +1,19 @@
 #include <iostream>
-#include <limits> // Para numeric_limits
-#include <cstdlib> // Para system("cls")
-#include <string>  // Para string
+#include <limits>
+#include <cstdlib>
+#include <string>
+#include <fstream>
+#include <cctype>
 
 #include "utils.h"
-#include "searchInfo.h"    // Para play()
-#include "findSupplies.h"  // Para findSupplies()
-#include "spaceRace.h"     // Para spaceRace()
-#include "guessPassword.h" // Para guessPassword()
+#include "searchInfo.h"
+#include "findSupplies.h"
+#include "spaceRace.h"
+#include "guessPassword.h"
 
 using namespace std;
 
-// Definición de la variable global
+// Definición real de la variable global
 int globalScore = 0;
 
 // Función para esperar que el usuario presione Enter
@@ -34,25 +36,52 @@ void displayGameIntroduction() {
     waitForEnter();
 }
 
-// Muestra el menú de selección de planeta y obtiene la elección del usuario
-void displayPlanetSelectionMenu(int& planetChoice) {
+// Muestra el menú de selección de planeta
+void displayPlanetSelectionMenu(int& planetChoice, bool& loadOptionChosen) {
     system("cls");
     cout << "=======================================\n";
     cout << "   SELECT YOUR DESTINATION\n";
     cout << "=======================================\n\n";
     cout << "1. Kepler-45: Information Search & Supplies Recovery\n";
-    cout << "2. PSR: Connection Reestablishment & Password Decryption\n\n";
-    cout << "Enter your choice (1 or 2): ";
+    cout << "2. PSR: Connection Reestablishment & Password Decryption\n";
+    cout << "3. Load Saved Game\n\n";
+    cout << "Enter your choice (1, 2 or 3): ";
 
-    while (!(cin >> planetChoice) || (planetChoice != 1 && planetChoice != 2)) {
-        cout << "Invalid choice. Please enter 1 or 2: ";
-        cin.clear(); // Limpiar el estado de error
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Descartar entrada inválida
+    int choice;
+    while (!(cin >> choice) || (choice < 1 || choice > 3)) {
+        cout << "Invalid option. Please enter 1, 2 or 3: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Limpiar el buffer después de leer el entero
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    if (choice == 3) {
+        GameState loadedState = loadGame();
+        if (loadedState.planet != 0) {
+            globalScore = loadedState.score;
+            planetChoice = loadedState.planet;
+            loadOptionChosen = true;
+            cout << "\nGame loaded successfully! Score: " << globalScore
+                 << ", Planet: " << (planetChoice == 1 ? "Kepler-45" : "PSR") << "\n";
+            waitForEnter();
+        } else {
+            cout << "\nCould not load game. Starting a new one...\n";
+            loadOptionChosen = false;
+            cout << "Enter your choice for a new game (1 or 2): ";
+            while (!(cin >> planetChoice) || (planetChoice != 1 && planetChoice != 2)) {
+                cout << "Invalid option. Please enter 1 or 2: ";
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+    } else {
+        planetChoice = choice;
+        loadOptionChosen = false;
+    }
 }
 
-// Muestra el mensaje de inicio de misión basado en la elección del planeta
+// Muestra el mensaje de inicio de misión
 void displayMissionStartMessage(int planetChoice) {
     system("cls");
     if (planetChoice == 1) {
@@ -61,7 +90,7 @@ void displayMissionStartMessage(int planetChoice) {
         cout << "=======================================\n\n";
         cout << "Kepler-45, a planet shrouded in mystery, holds the first clues about the AI.\n";
         cout << "Your missions here will focus on gathering intelligence and securing resources.\n";
-    } else { // planetChoice == 2
+    } else {
         cout << "=======================================\n";
         cout << "   PREPARING FOR PSR MISSIONS\n";
         cout << "=======================================\n\n";
@@ -72,7 +101,7 @@ void displayMissionStartMessage(int planetChoice) {
     waitForEnter();
 }
 
-// Muestra un mensaje intermedio de misión completada
+// Mensaje de misión completada + opción de guardar
 void displayMissionCompleteMessage(int planetChoice) {
     system("cls");
     cout << "=======================================\n";
@@ -85,21 +114,51 @@ void displayMissionCompleteMessage(int planetChoice) {
         cout << "PSR.\n";
     }
     cout << "Prepare for the next challenge!\n";
+
+    char saveChoice;
+    cout << "\nDo you want to save your progress? (y/n): ";
+    cin >> saveChoice;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    if (tolower(saveChoice) == 'y') {
+        GameState currentState;
+        currentState.score = globalScore;
+        currentState.planet = planetChoice;
+        saveGame(currentState);
+        cout << "Game saved successfully!\n";
+    } else {
+        cout << "Game not saved.\n";
+    }
+
     waitForEnter();
 }
 
-// Maneja la ejecución de las misiones según el planeta elegido
+// Ejecuta ambas misiones, independientemente del orden inicial
 void handlePlanetMissions(int planetChoice) {
+    int secondPlanet = (planetChoice == 1) ? 2 : 1;
+
+    // --- Primera ronda ---
+    displayMissionStartMessage(planetChoice);
     if (planetChoice == 1) {
-        // Misiones de Kepler-45
-        play(); // Misión 1: Búsqueda de Información
-        displayMissionCompleteMessage(planetChoice); // Mensaje intermedio
-        findSupplies(); // Misión 2: Recuperación de Suministros
-    } else { // planetChoice == 2
-        // Misiones de PSR
-        spaceRace(); // Misión 1: Restablecimiento de Conexión
-        displayMissionCompleteMessage(planetChoice); // Mensaje intermedio
-        guessPassword(); // Misión 2: Descifrando Contraseña
+        play();
+        displayMissionCompleteMessage(1);
+        findSupplies();
+    } else {
+        spaceRace();
+        displayMissionCompleteMessage(2);
+        guessPassword();
+    }
+
+    // --- Segunda ronda ---
+    displayMissionStartMessage(secondPlanet);
+    if (secondPlanet == 1) {
+        play();
+        displayMissionCompleteMessage(1);
+        findSupplies();
+    } else {
+        spaceRace();
+        displayMissionCompleteMessage(2);
+        guessPassword();
     }
 }
 
@@ -114,4 +173,30 @@ void displayGameSummary() {
     cout << "Final Score: " << globalScore << "\n\n";
     cout << "Thank you for playing 'Noctriz: The Algoritmia Agent'!\n";
     waitForEnter();
+}
+
+// Guarda la partida en un archivo
+void saveGame(const GameState& state) {
+    ofstream outFile("savegame.dat");
+    if (outFile.is_open()) {
+        outFile << state.score << endl;
+        outFile << state.planet << endl;
+        outFile.close();
+    } else {
+        cout << "Error: Could not open file to save game.\n";
+    }
+}
+
+// Carga la partida desde un archivo
+GameState loadGame() {
+    GameState loadedState = {0, 0};
+    ifstream inFile("savegame.dat");
+    if (inFile.is_open()) {
+        inFile >> loadedState.score;
+        inFile >> loadedState.planet;
+        inFile.close();
+    } else {
+        cout << "Warning: No saved game file found.\n";
+    }
+    return loadedState;
 }

@@ -71,9 +71,9 @@ void spaceRace () {
     }
 
     system("cls");
-    cout << "=======================================\n";
+    cout << "===========================================\n";
     cout << "   MISSION PSR: CONNECTION REESTABLISHMENT\n"; // Título de la misión en inglés
-    cout << "=======================================\n\n";
+    cout << "===========================================\n\n";
 
     // resultado
     if (playerPos >= TRACK_LEN - 1 && cpuPos >= TRACK_LEN - 1) {
