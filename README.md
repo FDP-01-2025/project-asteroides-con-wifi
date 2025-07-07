@@ -32,8 +32,9 @@ The player will face different  **missions** in different planets:
 - Find passwords.
 - Participate in a space career.
 
-Each mission corresponds to a module of the program and allows access to an interactive menu.
-This menu lets the player choose the planet they would like to start with, which will be their first destination.
+_Each mission corresponds to a module of the program and allows access to an interactive menu.
+This menu lets the player choose the planet they would like to start with, which will be their first destination._
+
 ---
 
 ## 🕹️ General gameplay idea 
