@@ -2,7 +2,7 @@
 
 # Proyecto de C++ - OWL ROCKET 🚀
 
-## 👨‍🚀 Team
+## [👨‍🚀Staff👨‍🚀]
 
 - **Team name:** Asteroides con WiFi
 - **Game Name:** OWL ROCKET
