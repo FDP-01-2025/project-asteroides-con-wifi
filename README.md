@@ -54,7 +54,6 @@ Each mission corresponds to a module of the program and allows access to an inte
 ## 🎓 Course Topics & Game Application
 
 | **Course Topic**                | **Application in the Game**                                                                 |
-|---------------------------------|---------------------------------------------------------------------------------------------|
 | **Variables and Data Types**    | Uses `int`, `float`, `bool`, and `string` variables in missions to control game mechanics.  |
 | **Conditional Structures**      | Uses `if`, `else`, and `switch` statements to manage player decisions and mission outcomes. |
 | **Loops (for, while, do-while)**| Used for attempt repetition, data validation, and managing in-game interactions.            |
