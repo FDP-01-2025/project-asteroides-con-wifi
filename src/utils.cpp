@@ -16,13 +16,11 @@ using namespace std;
 // Definición real de la variable global
 int globalScore = 0;
 
-// Función para esperar que el usuario presione Enter
 void waitForEnter() {
     cout << "\nPress Enter to continue...";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
-// Muestra la introducción del juego
 void displayGameIntroduction() {
     system("cls");
     cout << "=======================================\n";
@@ -36,7 +34,6 @@ void displayGameIntroduction() {
     waitForEnter();
 }
 
-// Muestra el menú de selección de planeta
 void displayPlanetSelectionMenu(int& planetChoice, bool& loadOptionChosen) {
     system("cls");
     cout << "=======================================\n";
@@ -81,7 +78,6 @@ void displayPlanetSelectionMenu(int& planetChoice, bool& loadOptionChosen) {
     }
 }
 
-// Muestra el mensaje de inicio de misión
 void displayMissionStartMessage(int planetChoice) {
     system("cls");
     if (planetChoice == 1) {
@@ -101,7 +97,6 @@ void displayMissionStartMessage(int planetChoice) {
     waitForEnter();
 }
 
-// Mensaje de misión completada + opción de guardar
 void displayMissionCompleteMessage(int planetChoice) {
     system("cls");
     cout << "=======================================\n";
@@ -133,11 +128,9 @@ void displayMissionCompleteMessage(int planetChoice) {
     waitForEnter();
 }
 
-// Ejecuta ambas misiones, independientemente del orden inicial
 void handlePlanetMissions(int planetChoice) {
     int secondPlanet = (planetChoice == 1) ? 2 : 1;
 
-    // --- Primera ronda ---
     displayMissionStartMessage(planetChoice);
     if (planetChoice == 1) {
         play();
@@ -149,7 +142,6 @@ void handlePlanetMissions(int planetChoice) {
         guessPassword();
     }
 
-    // --- Segunda ronda ---
     displayMissionStartMessage(secondPlanet);
     if (secondPlanet == 1) {
         play();
@@ -162,7 +154,22 @@ void handlePlanetMissions(int planetChoice) {
     }
 }
 
-// Muestra el resumen final del juego
+// NUEVO: Guarda el puntaje final en leaderboard.txt con nombre del usuario
+void saveFinalScoreToLeaderboard() {
+    string playerName;
+    cout << "\nEnter your agent name for the leaderboard: ";
+    getline(cin, playerName);
+
+    ofstream file("leaderboard.txt", ios::app); // Modo append
+    if (file.is_open()) {
+        file << playerName << ": " << globalScore << " points\n";
+        file.close();
+        cout << "Your score has been saved to the leaderboard!\n";
+    } else {
+        cout << "Error: Could not save to leaderboard.\n";
+    }
+}
+
 void displayGameSummary() {
     system("cls");
     cout << "=======================================\n";
@@ -171,11 +178,11 @@ void displayGameSummary() {
     cout << "Your adventure as Agent Noctriz has concluded.\n";
     cout << "You faced numerous challenges and proved your worth.\n\n";
     cout << "Final Score: " << globalScore << "\n\n";
-    cout << "Thank you for playing 'Noctriz: The Algoritmia Agent'!\n";
+    saveFinalScoreToLeaderboard(); // NUEVO
+    cout << "\nThank you for playing 'Noctriz: The Algoritmia Agent'!\n";
     waitForEnter();
 }
 
-// Guarda la partida en un archivo
 void saveGame(const GameState& state) {
     ofstream outFile("savegame.dat");
     if (outFile.is_open()) {
@@ -187,7 +194,6 @@ void saveGame(const GameState& state) {
     }
 }
 
-// Carga la partida desde un archivo
 GameState loadGame() {
     GameState loadedState = {0, 0};
     ifstream inFile("savegame.dat");
