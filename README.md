@@ -19,7 +19,7 @@
 
 ## 🧠 Theme and setting
 
- You need to go with **Noctriz** in a space adventure full of missions to save all the population of  **Algoritmia**, they have been kidnapped by an AI.This game implies logic in different ways ,memory and chanllenges across the intersllestar space. 
+ You need to go with **Noctriz** in a space adventure full of missions to save all the population of  **Algoritmia**, they have been kidnapped by an AI.This game implies logic in different ways, memory and challenges across the intersllestar space. 
 
 ---
 
