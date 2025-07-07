@@ -51,18 +51,17 @@ Each mission corresponds to a module of the program and allows access to an inte
 
 ## 💻 Applying the concepts learned
 
-## 🎓 Course Topics & Game Application
+| **Course Topics**                  | **AGame Application**                                                                 |
+|-----------------------------------|----------------------------------------------------------------------------------------|
+| **Variables and Data Types**      | Uses `int`, `float`, `bool`, and `string` to control gameplay elements in missions.   |
+| **Conditional Structures**        | Implements `if`, `else`, and `switch` to allow player decisions that impact the game's flow and outcomes. |
+| **Loops (`for`, `while`, `do-while`)** | Used for repeating attempts, validating input, and creating interactive mission logic.  |
+| **Functions**                     | Missions and utility features are organized into modular functions (e.g., `startMission1()`, `checkProgress()`). |
+| **Data Structures**               | Arrays like `string[]` and `int[]` are used to manage data in mini-games.              |
+| **File Handling**                 | Game scores and progress are saved using `fstream`.                                   |
+| **Error Handling**                | Validates user input to prevent crashes and ensure a smooth user experience.           |
+| **Console Interface**             | Uses `cout`, `cin`, separators, and ASCII art to build interactive and visually appealing menus. |
 
-| **Course Topic**                | **Application in the Game**                                                                 |
-| **Variables and Data Types**    | Uses `int`, `float`, `bool`, and `string` variables in missions to control game mechanics.  |
-| **Conditional Structures**      | Uses `if`, `else`, and `switch` statements to manage player decisions and mission outcomes. |
-| **Loops (for, while, do-while)**| Used for attempt repetition, data validation, and managing in-game interactions.            |
-| **Functions**                   | Each mission and utility is encapsulated in functions (e.g., `startMission1()`, etc.).     |
-| **Data Structures**             | Arrays like `string[]` and `int[]` are used in minigames to store and manage game data.    |
-| **File Handling**               | Player scores are saved and retrieved using `fstream`.                                     |
-| **Error Handling**              | Input validation prevents crashes by handling incorrect or unexpected user input.          |
-| **Console Interface**           | Menus and UI elements are built using `cout`, `cin`, separators, and ASCII Art.            |
----
 
 ## 🛠️Technical Considerations of Development
 
