@@ -80,14 +80,18 @@ Cada misión corresponde a un módulo del programa y se accede a través de un m
 
 ---
 
-
-
-
-
----
-
 ## ▶️ Instrucciones de Ejecución
 
 1. Clona este repositorio:
    ```bash
    git clone https://github.com/FDP-01-2025/project-asteroides-con-wifi.git
+
+2. Abre el proyecto con un IDE o Editor de Código.
+
+3. Compila el archivo en la terminal, pulsa windows+ñ y luego compila el `main.cpp` con el siguiente comando:
+
+   *g++ -o owlrocket ./main.cpp*
+
+4. Ejecuta el juego con el comando:
+
+   *./owlrocket.exe*
