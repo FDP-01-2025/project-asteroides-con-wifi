@@ -49,6 +49,31 @@ This menu lets the player choose the planet they would like to start with, which
 
 5. After completing all the missions, the player frees Algoritmia from the AI.
 
+## Mockup
+These are some images of our mockup, showing what our game and mini-games look like
+
+1. **Show the game theme to the player**
+
+https://drive.google.com/file/d/10aLqbp_od-OtLnPsFiOxPaZypjw9KX6p/view?usp=sharing
+
+
+2. **Show an interactive menu**
+
+https://drive.google.com/file/d/1Dp75k4doEAw_NhlUZa1vrx-DB6mfHab4/view?usp=sharing
+
+
+3. **Show the different mini games**
+
+https://drive.google.com/file/d/1sdiHP8MYqQPCWOG5Te2uRDyUZMQCfg9s/view?usp=sharing
+
+https://drive.google.com/file/d/1gNwcF6hyHZ-kzerNRE9aj9ExGLlZ4sW_/view?usp=sharing
+
+https://drive.google.com/file/d/1bKspUD0IuTW_OIVOfEO8zoLbPtrohetC/view?usp=sharing
+
+https://drive.google.com/file/d/186ZS03ULuFwYIdsl8GKwjr2UjVlnKidr/view?usp=sharing
+
+
+
 ---
 
 ## 💻 Applying the concepts learned
