@@ -54,24 +54,21 @@ These are some images of our mockup, showing what our game and mini-games look l
 
 1. **Show the game theme to the player**
 
-(https://drive.google.com/file/d/10aLqbp_od-OtLnPsFiOxPaZypjw9KX6p/view?usp=sharing)
-
+![Game Theme]( https://drive.google.com/uc?export=view&id=10aLqbp_od-OtLnPsFiOxPaZypjw9KX6p)
 
 2. **Show an interactive menu**
 
-(https://drive.google.com/file/d/1Dp75k4doEAw_NhlUZa1vrx-DB6mfHab4/view?usp=sharing)
-
+![Interactive Menu]( https://drive.google.com/uc?export=view&id=1Dp75k4doEAw_NhlUZa1vrx-DB6mfHab4)
 
 3. **Show the different mini games**
 
-(https://drive.google.com/file/d/1sdiHP8MYqQPCWOG5Te2uRDyUZMQCfg9s/view?usp=sharing)
+![Mini Game 1]( https://drive.google.com/uc?export=view&id=1sdiHP8MYqQPCWOG5Te2uRDyUZMQCfg9s)
 
-h(ttps://drive.google.com/file/d/1gNwcF6hyHZ-kzerNRE9aj9ExGLlZ4sW_/view?usp=sharing)
+![Mini Game 2]( https://drive.google.com/uc?export=view&id=1gNwcF6hyHZ-kzerNRE9aj9ExGLlZ4sW_)
 
-(https://drive.google.com/file/d/1bKspUD0IuTW_OIVOfEO8zoLbPtrohetC/view?usp=sharing)
+![Mini Game 3]( https://drive.google.com/uc?export=view&id=1bKspUD0IuTW_OIVOfEO8zoLbPtrohetC)
 
-(https://drive.google.com/file/d/186ZS03ULuFwYIdsl8GKwjr2UjVlnKidr/view?usp=sharing
-)
+![Mini Game 4]( https://drive.google.com/uc?export=view&id=186ZS03ULuFwYIdsl8GKwjr2UjVlnKidr)
 
 
 ---
