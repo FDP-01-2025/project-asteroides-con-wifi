@@ -163,47 +163,42 @@ int main() {
 ```cpp
 
 /*
-Esta parte es utilizada para tener un código mucho más estructurado,
-aquí se encuentran funciones necesarias para el manejo fluido del juego.
-
+Esta parte es utilizada para tener un código mucho más estructurado.
+Aquí se encuentran funciones necesarias para el manejo fluido del juego.
+Incluye funciones de introducción, selección de planeta, misiones, y guardado/carga del juego.
 */
-#include <iostream> // Para entrada y salida de datos (cout, cin)
-#include <limits>   // Para numeric_limits, utilizado para limpiar el buffer de entrada
-#include <cstdlib>  // Para system("cls") para limpiar la pantalla
-#include <string>   // Para el manejo de cadenas de texto (string)
 
-#include "utils.h"         // Incluye el archivo de encabezado de esta utilidad
-#include "searchInfo.h"    // Para la función play()
-#include "findSupplies.h"  // Para la función findSupplies()
-#include "spaceRace.h"     // Para la función spaceRace()
-#include "guessPassword.h" // Para la función guessPassword()
+#include <iostream>
+#include <limits>
+#include <cstdlib>
+#include <string>
+#include <fstream>
+#include <cctype>
 
-using namespace std; // Usa el espacio de nombres estándar
+#include "utils.h"         // Funciones utilitarias principales
+#include "searchInfo.h"    // Juego de búsqueda de información (Kepler-45)
+#include "findSupplies.h"  // Juego de recuperación de suministros
+#include "spaceRace.h"     // Carrera espacial (PSR)
+#include "guessPassword.h" // Juego del ahorcado
 
-// Definición de la variable global para la puntuación del juego.
-// Esta variable es accesible y modificable desde cualquier parte del programa.
+using namespace std;
+
+// Variable global que mantiene el puntaje total del jugador
 int globalScore = 0;
 
 /**
- *  Espera a que el usuario presione la tecla Enter para continuar.
- *
- * Esta función es útil para pausar la ejecución del programa y permitir al usuario
- * leer mensajes en la consola antes de avanzar.
+ *  Pausa la ejecución hasta que el usuario presione Enter.
  */
 void waitForEnter() {
-    cout << "\nPress Enter to continue..."; // Solicita al usuario que presione Enter
-    // Ignora y descarta cualquier carácter restante en el buffer de entrada
-    // hasta encontrar un salto de línea, asegurando que futuras entradas no se vean afectadas.
+    cout << "\nPress Enter to continue...";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
 /**
- *   Muestra la introducción del juego al usuario.
- *
- * Limpia la pantalla y presenta la premisa del juego y el rol del agente Noctriz.
+ *  Muestra la introducción narrativa del juego al iniciar.
  */
 void displayGameIntroduction() {
-    system("cls"); // Limpia la pantalla de la consola
+    system("cls");
     cout << "=======================================\n";
     cout << "   WELCOME TO NOCTRIZ: THE ALGORITMIA AGENT\n";
     cout << "=======================================\n\n";
@@ -212,122 +207,253 @@ void displayGameIntroduction() {
     cout << "to neutralize the AI and restore peace to the galaxy.\n";
     cout << "Your journey will take you to two mysterious planets: Kepler-45 and PSR.\n";
     cout << "Each one holds unique challenges and vital information.\n\n";
-    waitForEnter(); // Espera la confirmación del usuario
-}
-
-/**
- *   Muestra el menú de selección de planeta y obtiene la elección del usuario.
- *
- * Solicita al usuario que elija entre Kepler-45 y PSR, validando la entrada.
- *
- *  planetChoice Referencia a un entero donde se almacenará la elección del planeta (1 o 2).
- */
-void displayPlanetSelectionMenu(int& planetChoice) {
-    system("cls"); // Limpia la pantalla
-    cout << "=======================================\n";
-    cout << "   SELECT YOUR DESTINATION\n";
-    cout << "=======================================\n\n";
-    cout << "Where do you want to start your mission, Agent Noctriz?\n";
-    cout << "1. Kepler-45 (Information Search & Supplies Recovery)\n";
-    cout << "2. PSR (Connection Reestablishment & Password Decryption)\n";
-    cout << "\nEnter your choice (1 or 2): ";
-
-    // Bucle para validar la entrada del usuario.
-    // Se repetirá hasta que el usuario ingrese 1 o 2.
-    while (!(cin >> planetChoice) || (planetChoice != 1 && planetChoice != 2)) {
-        cout << "Invalid choice. Please enter 1 for Kepler-45 or 2 for PSR: ";
-        cin.clear(); // Limpia cualquier flag de error de cin (ej. si el usuario ingresa texto)
-        // Ignora el resto de la línea en el buffer de entrada hasta el salto de línea.
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    }
-    // Limpia el buffer después de una entrada válida para evitar problemas con futuras lecturas.
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-}
-
-/**
- *   Muestra un mensaje de inicio de misión personalizado.
- *
- * El mensaje varía dependiendo del planeta que el usuario haya elegido.
- *
- *  planetChoice La elección del planeta (1 para Kepler-45, 2 para PSR).
- */
-void displayMissionStartMessage(int planetChoice) {
-    system("cls"); // Limpia la pantalla
-    cout << "=======================================\n";
-    cout << "   MISSION BRIEFING\n";
-    cout << "=======================================\n\n";
-    if (planetChoice == 1) {
-        cout << "You've chosen to go to Kepler-45. Your first mission there will be to recover vital information.\n";
-        cout << "Be prepared for a challenge of memory and logic!\n";
-    } else {
-        cout << "You've chosen to go to PSR. Your first mission there will be to reestablish communication with Algoritmia.\n";
-        cout << "Prepare for a high-speed challenge!\n";
-    }
-    waitForEnter(); // Espera la confirmación del usuario
-}
-
-/**
- *  Muestra un mensaje indicando que una misión ha sido completada.
- *
- *  Este mensaje se muestra entre misiones en el mismo planeta.
- *
- *  planetChoice La elección del planeta para adaptar el mensaje.
- */
-void displayMissionCompleteMessage(int planetChoice) {
-    system("cls"); // Limpia la pantalla
-    cout << "=======================================\n";
-    cout << "   MISSION COMPLETE!\n";
-    cout << "=======================================\n\n";
-    cout << "You have successfully completed a mission on ";
-    if (planetChoice == 1) {
-        cout << "Kepler-45.\n";
-    } else {
-        cout << "PSR.\n";
-    }
-    cout << "Prepare for the next challenge!\n";
     waitForEnter();
 }
 
 /**
- *   Maneja la ejecución de las misiones según el planeta elegido.
- *
- * Esta función es el centro de control de las misiones.
- * Basándose en la elección del planeta, llama a las funciones de las misiones correspondientes.
- * Incluye mensajes intermedios entre misiones para la experiencia del usuario.
- *
- * planetChoice La elección del planeta (1 para Kepler-45, 2 para PSR).
+ *  Despliega el menú para elegir entre Kepler-45, PSR o cargar partida.
+ *  @param planetChoice Referencia donde se almacena el planeta elegido.
+ *  @param loadOptionChosen Bandera que indica si se cargó una partida.
  */
-void handlePlanetMissions(int planetChoice) {
-    if (planetChoice == 1) {
-        // Misiones de Kepler-45
-        play(); // Misión 1: Búsqueda de Información (Juego de Memoria)
-        displayMissionCompleteMessage(planetChoice); // Mensaje intermedio
-        findSupplies(); // Misión 2: Recuperación de Suministros (Juego de Laberinto)
-    } else { // planetChoice == 2
-        // Misiones de PSR
-        spaceRace(); // Misión 1: Restablecimiento de Conexión (Juego de Carrera Espacial)
-        displayMissionCompleteMessage(planetChoice); // Mensaje intermedio
-        guessPassword(); // Misión 2: Descifrando Contraseña (Juego del Ahorcado)
+void displayPlanetSelectionMenu(int& planetChoice, bool& loadOptionChosen) {
+    system("cls");
+    cout << "=======================================\n";
+    cout << "   SELECT YOUR DESTINATION\n";
+    cout << "=======================================\n\n";
+    cout << "1. Kepler-45: Information Search & Supplies Recovery\n";
+    cout << "2. PSR: Connection Reestablishment & Password Decryption\n";
+    cout << "3. Load Saved Game\n\n";
+    cout << "Enter your choice (1, 2 or 3): ";
+
+    int choice;
+    while (!(cin >> choice) || (choice < 1 || choice > 3)) {
+        cout << "Invalid option. Please enter 1, 2 or 3: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    if (choice == 3) {
+        GameState loadedState = loadGame();
+        if (loadedState.planet != 0) {
+            globalScore = loadedState.score;
+            planetChoice = loadedState.planet;
+            loadOptionChosen = true;
+            cout << "\nGame loaded successfully! Score: " << globalScore
+                 << ", Planet: " << (planetChoice == 1 ? "Kepler-45" : "PSR") << "\n";
+            waitForEnter();
+        } else {
+            cout << "\nCould not load game. Starting a new one...\n";
+            loadOptionChosen = false;
+            cout << "Enter your choice for a new game (1 or 2): ";
+            while (!(cin >> planetChoice) || (planetChoice != 1 && planetChoice != 2)) {
+                cout << "Invalid option. Please enter 1 or 2: ";
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+    } else {
+        planetChoice = choice;
+        loadOptionChosen = false;
     }
 }
 
 /**
- *   Muestra el resumen final del juego.
- *
- * Presenta la puntuación final obtenida por el jugador y un mensaje de despedida.
+ *  Muestra un mensaje contextual de inicio de misión.
+ *  @param planetChoice 1 para Kepler-45, 2 para PSR.
+ */
+void displayMissionStartMessage(int planetChoice) {
+    system("cls");
+    if (planetChoice == 1) {
+        cout << "=======================================\n";
+        cout << "   PREPARING FOR KEPLER-45 MISSIONS\n";
+        cout << "=======================================\n\n";
+        cout << "Kepler-45, a planet shrouded in mystery, holds the first clues about the AI.\n";
+        cout << "Your missions here will focus on gathering intelligence and securing resources.\n";
+    } else {
+        cout << "=======================================\n";
+        cout << "   PREPARING FOR PSR MISSIONS\n";
+        cout << "=======================================\n\n";
+        cout << "PSR, a distant outpost, requires your immediate attention to restore vital communications.\n";
+        cout << "Your missions here will test your speed and decryption skills.\n";
+    }
+    cout << "\nGood luck, Agent Noctriz!\n";
+    waitForEnter();
+}
+
+/**
+ *  Muestra un mensaje de éxito tras completar una misión.
+ *  También permite guardar el progreso del jugador.
+ *  @param planetChoice El planeta donde se completó la misión.
+ */
+void displayMissionCompleteMessage(int planetChoice) {
+    system("cls");
+    cout << "=======================================\n";
+    cout << "   MISSION COMPLETE!\n";
+    cout << "=======================================\n\n";
+    cout << "You have successfully completed a mission on ";
+    cout << (planetChoice == 1 ? "Kepler-45.\n" : "PSR.\n");
+    cout << "Prepare for the next challenge!\n";
+
+    char saveChoice;
+    cout << "\nDo you want to save your progress? (y/n): ";
+    cin >> saveChoice;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    if (tolower(saveChoice) == 'y') {
+        GameState currentState = { globalScore, planetChoice };
+        saveGame(currentState);
+        cout << "Game saved successfully!\n";
+    } else {
+        cout << "Game not saved.\n";
+    }
+
+    waitForEnter();
+}
+
+/**
+ *  Ejecuta las misiones del planeta seleccionado y luego del otro.
+ *  @param planetChoice Planeta de inicio (1 o 2).
+ */
+void handlePlanetMissions(int planetChoice) {
+    int secondPlanet = (planetChoice == 1) ? 2 : 1;
+
+    displayMissionStartMessage(planetChoice);
+    if (planetChoice == 1) {
+        play();
+        displayMissionCompleteMessage(1);
+        findSupplies();
+    } else {
+        spaceRace();
+        displayMissionCompleteMessage(2);
+        guessPassword();
+    }
+
+    displayMissionStartMessage(secondPlanet);
+    if (secondPlanet == 1) {
+        play();
+        displayMissionCompleteMessage(1);
+        findSupplies();
+    } else {
+        spaceRace();
+        displayMissionCompleteMessage(2);
+        guessPassword();
+    }
+}
+
+/**
+ *  Guarda el nombre del jugador y puntaje en el leaderboard.
+ */
+void saveFinalScoreToLeaderboard() {
+    string playerName;
+    cout << "\nEnter your agent name for the leaderboard: ";
+    getline(cin, playerName);
+
+    ofstream file("leaderboard.txt", ios::app);
+    if (file.is_open()) {
+        file << playerName << ": " << globalScore << " points\n";
+        file.close();
+        cout << "Your score has been saved to the leaderboard!\n";
+    } else {
+        cout << "Error: Could not save to leaderboard.\n";
+    }
+}
+
+/**
+ *  Muestra un resumen final del juego y guarda el puntaje si el jugador lo desea.
  */
 void displayGameSummary() {
-    system("cls"); // Limpia la pantalla
+    system("cls");
     cout << "=======================================\n";
     cout << "   GAME SUMMARY\n";
     cout << "=======================================\n\n";
     cout << "Your adventure as Agent Noctriz has concluded.\n";
-    cout << "You faced numerous challenges and proved your worth!\n\n";
-    cout << "Final Score: " << globalScore << " points.\n\n"; // Muestra la puntuación global final
-    cout << "Thank you for playing Noctriz: The Algoritmia Agent!\n";
-    cout << "See you on your next mission, Agent!\n";
-    waitForEnter(); // Espera la confirmación final del usuario antes de que el programa termine
+    cout << "You faced numerous challenges and proved your worth.\n\n";
+    cout << "Final Score: " << globalScore << "\n\n";
+    saveFinalScoreToLeaderboard();
+    cout << "\nThank you for playing 'Noctriz: The Algoritmia Agent'!\n";
+    waitForEnter();
 }
+
+/**
+ *  Guarda el estado actual del juego en un archivo.
+ *  @param state La estructura con puntaje y planeta actual.
+ */
+void saveGame(const GameState& state) {
+    ofstream outFile("savegame.dat");
+    if (outFile.is_open()) {
+        outFile << state.score << endl;
+        outFile << state.planet << endl;
+        outFile.close();
+    } else {
+        cout << "Error: Could not open file to save game.\n";
+    }
+}
+
+/**
+ *  Carga el estado guardado del juego desde el archivo.
+ *  @return GameState con datos cargados (o ceros si falla).
+ */
+GameState loadGame() {
+    GameState loadedState = {0, 0};
+    ifstream inFile("savegame.dat");
+    if (inFile.is_open()) {
+        inFile >> loadedState.score;
+        inFile >> loadedState.planet;
+        inFile.close();
+    } else {
+        cout << "Warning: No saved game file found.\n";
+    }
+    return loadedState;
+}
+
+```
+
+📘 **_src/utils.h_**
+
+```cpp
+#ifndef UTILS_H
+#define UTILS_H
+
+#include <string>
+#include <fstream> // Necesario para leer y escribir archivos
+
+// 🌟 Variable global que lleva el puntaje acumulado del jugador
+extern int globalScore;
+
+/**
+ * 🧾 Estructura que representa el estado del juego.
+ * - `score`: Puntos acumulados.
+ * - `planet`: Planeta actual (1: Kepler-45, 2: PSR).
+ */
+struct GameState {
+    int score;
+    int planet;
+};
+
+// 🧠 Funciones utilitarias que manejan diferentes aspectos del flujo del juego
+
+void waitForEnter(); ///< Pausa la ejecución hasta que el jugador presione Enter
+void displayGameIntroduction(); ///< Introducción narrativa del juego
+
+/**
+ * Muestra el menú de selección de planeta o cargar partida.
+ * @param planetChoice Variable para almacenar la elección del planeta.
+ * @param loadOptionChosen Bandera que indica si se cargó una partida.
+ */
+void displayPlanetSelectionMenu(int& planetChoice, bool& loadOptionChosen);
+
+void displayMissionStartMessage(int planetChoice); ///< Muestra introducción de la misión según planeta
+void displayMissionCompleteMessage(int planetChoice); ///< Muestra mensaje tras completar una misión
+void handlePlanetMissions(int planetChoice); ///< Ejecuta las misiones según la elección inicial
+void displayGameSummary(); ///< Muestra el resumen del juego y guarda el puntaje
+
+// 💾 Funciones para guardar/cargar partidas
+void saveGame(const GameState& state); ///< Guarda el estado del juego
+GameState loadGame(); ///< Carga el estado del juego desde archivo
+
+#endif // UTILS_H
 
 ```
 
@@ -549,6 +675,8 @@ void play() {
 }
 
 ```
+
+
 
 🍩 **_src/findSupplies_**
 
