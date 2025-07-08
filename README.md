@@ -97,6 +97,32 @@ These are some images of our mockup, showing what our game and mini-games look l
 
 ---
 
+ ## FlowChart
+ In this part you can see the flowchart about all the videogame.
+
+1. **FlowChart: Main**
+
+![Main]( https://drive.google.com/file/d/1bkPiUepem-gp8GI3glBRqxEAIIM2XPm0/view?usp=drive_link)
+
+2. **FlowChart: GuessPassword**
+
+![GuesPassword]( https://drive.google.com/file/d/169nU0nzr5AXQq0d0OcyrrGrXfy_6quh5/view?usp=drive_link)
+
+3. **FlowChart: FindSupplies**
+
+![FindSupplies]( https://drive.google.com/file/d/19w7Nf41UKIVNdCGc4BoXjbcKRnw4hIDc/view?usp=drive_link)
+
+4. **FlowChart: SearchInfo**
+![SearchInfo]( https://drive.google.com/file/d/1TeHzxs8YHI5Ois2_XjvZISpuv7vhEq3O/view?usp=drive_link)
+
+5.**FlowChart: SpaceRace**
+![SpaceRace]( https://drive.google.com/file/d/1aM0Nu_1P5d6GsFr6Ccvd-PB75DNe1wgn/view?usp=drive_link)
+
+6. **FlowChart: Utils**
+![Utils]( https://drive.google.com/file/d/1AKok5wq58xcY-DFl-4sTTr1aMxIiFljX/view?usp=drive_link)
+
+
+---
 ## 🗂️ C++ Documentation
 
  *This part explains the code and how you can play the videogame called "Owl Rocket".*
