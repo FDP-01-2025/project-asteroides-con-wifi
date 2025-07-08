@@ -110,7 +110,7 @@ In this part you can see the flowchart about all the videogame.
 ![FindSupplies]( https://drive.google.com/uc?export=view&id=19w7Nf41UKIVNdCGc4BoXjbcKRnw4hIDc)
 
 4. **FlowChart: SearchInfo**
-![SearchInfo]( https://drive.google.com/uc?export=view&id=1TeHzxs8YHI5Ois2_XjvZISpuv7vhEq3O)
+![SearchInfo]( https://drive.google.com/file/d/1BWzp9UShxWFP10Rsovh17-J4QmYoJImo/view?usp=sharing)
 
 5. **FlowChart: SpaceRace**
 ![SpaceRace]( https://drive.google.com/uc?export=view&id=1aM0Nu_1P5d6GsFr6Ccvd-PB75DNe1wgn)
