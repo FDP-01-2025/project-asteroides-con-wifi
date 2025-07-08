@@ -1,6 +1,6 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/mi1WNrHU)
 
-# Proyecto de C++ - OWL ROCKET 🚀
+# Project in  C++ - OWL ROCKET 🚀
 
 ## [👨‍🚀Staff👨‍🚀]
 
@@ -75,7 +75,7 @@ These are some images of our mockup, showing what our game and mini-games look l
 
 ## 💻 Applying the concepts learned
 
-| **Course Topics**                  | **AGame Application**                                                                 |
+| **Course Topics**                  | **Game Application**                                                                 |
 |-----------------------------------|----------------------------------------------------------------------------------------|
 | **Variables and Data Types**      | Uses `int`, `float`, `bool`, and `string` to control gameplay elements in missions.   |
 | **Conditional Structures**        | Implements `if`, `else`, and `switch` to allow player decisions that impact the game's flow and outcomes. |
