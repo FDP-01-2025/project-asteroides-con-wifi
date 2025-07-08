@@ -101,15 +101,12 @@ These are some images of our mockup, showing what our game and mini-games look l
  In this part you can see the flowchart about all the videogame.
 
 1. **FlowChart: Main**
-
 ![Main]( https://drive.google.com/file/d/1bkPiUepem-gp8GI3glBRqxEAIIM2XPm0/view?usp=drive_link)
 
 2. **FlowChart: GuessPassword**
-
 ![GuesPassword]( https://drive.google.com/file/d/169nU0nzr5AXQq0d0OcyrrGrXfy_6quh5/view?usp=drive_link)
 
 3. **FlowChart: FindSupplies**
-
 ![FindSupplies]( https://drive.google.com/file/d/19w7Nf41UKIVNdCGc4BoXjbcKRnw4hIDc/view?usp=drive_link)
 
 4. **FlowChart: SearchInfo**
