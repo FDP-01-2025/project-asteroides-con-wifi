@@ -676,6 +676,31 @@ void play() {
 
 ```
 
+**_src/searchInfo.h_**
+
+```cpp
+#ifndef SEARCH_INFO_H
+#define SEARCH_INFO_H
+
+// === Declaraciones de funciones para searchInfo.cpp ===
+
+// Inicializa el estado y variables del juego de búsqueda
+void initializeGame();
+
+// Muestra el tablero actual en consola
+void showBoard();
+
+// Controla la lógica principal del juego de búsqueda
+void play();
+
+// Variable global que lleva el puntaje total del juego
+extern int globalScore;
+
+#endif // SEARCH_INFO_H
+
+
+```
+
 
 
 🍩 **_src/findSupplies_**
@@ -849,6 +874,40 @@ void findSupplies() {
 }
 
 ```
+
+**_scr/findSupplies.h_**
+
+```cpp
+#ifndef FIND_SUPPLIES_H
+#define FIND_SUPPLIES_H
+
+// ==============================================
+// 🧭 Encabezado del módulo: findSupplies.h
+// Contiene las declaraciones de funciones utilizadas
+// en el archivo findSupplies.cpp, relacionadas con
+// el minijuego de búsqueda de suministros.
+// ==============================================
+
+// 📌 Muestra visualmente el laberinto en la consola.
+// Esta función imprimirá el mapa o estructura donde
+// se llevará a cabo la búsqueda de suministros.
+void printMaze();
+
+// 📌 Verifica si una posición (fila, columna) está dentro
+// de los límites válidos del laberinto.
+// Retorna true si (r, c) está dentro; false si está fuera.
+bool inside(int r, int c);
+
+// 📌 Función principal del módulo.
+// Ejecuta la lógica del minijuego de búsqueda de suministros.
+// Suele ser llamada desde otra parte del programa
+// para iniciar esta misión en Kepler-45.
+void findSupplies();
+
+#endif // FIND_SUPPLIES_H
+
+```
+
 🚀 **_src/spaceRace_**
 
 ```cpp
@@ -969,6 +1028,32 @@ void spaceRace () {
 }
 
 ```
+
+**_src/spaceRace_**
+```cpp
+#ifndef SPACE_RACE_H
+#define SPACE_RACE_H
+
+// Este archivo es el encabezado para spaceRace.cpp
+// Aquí se declaran las funciones que serán usadas en ese archivo
+
+// drawLine dibuja una línea en la consola.
+// Recibe 'pos' que indica la posición donde poner el ícono,
+// y 'icon' que es el carácter o símbolo que se dibuja.
+// Se usa para mostrar el progreso de los competidores en la carrera.
+
+void drawLine(int pos, std::string icon);
+
+// Función principal del juego Space Race.
+// Controla la lógica general de la carrera,
+// actualizando posiciones y mostrando el avance de cada participante.
+
+void spaceRace();
+
+#endif // SPACE_RACE_H
+
+```
+
    ⚠️ **_src/guessPassword__**
 
    ```cpp
@@ -1124,6 +1209,28 @@ void guessPassword() {
     }
     waitForEnter(); // Espera la confirmación final del usuario
 }
+
+```
+
+**_src/guessPassword.h_**
+```cpp
+#ifndef GUESS_PASSWORD_H
+#define GUESS_PASSWORD_H
+
+#include <string> // Para usar std::string en el juego
+
+// === Funciones del módulo guessPassword.cpp ===
+
+// Dibuja el estado del personaje según las vidas restantes
+void body(int lives);
+
+// Muestra el avance actual del jugador (letras adivinadas, etc.)
+void showProgress();
+
+// Inicia el juego del ahorcado (descifrado de contraseña)
+void guessPassword();
+
+#endif // GUESS_PASSWORD_H
 
 ```
 
