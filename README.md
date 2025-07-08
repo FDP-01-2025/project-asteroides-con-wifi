@@ -1268,7 +1268,7 @@ void guessPassword();
 
 3. Compile the file in the terminal:
 
-   *g++ -o OwlRocket ./main.cpp*
+   *g++ -o OwlRocket ./main.cpp src/*.cpp*
 
 4. Run the game with the following command
 
